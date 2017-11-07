@@ -6,19 +6,27 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <%include navbar%>
+
+    <script type="text/javascript" src="/javascripts/index-script.js"></script>
+    <script type="text/javascript">
+      
+      $(document).ready(()=>{
+        $('.reg-link, .login-link').hide();
+      })
+    </script>
+    <% include navbar %>
 
     <% if(name !== undefined){ %>
-      <h1>Welcome, <%=name%></h1>
+        <h1>Welcome, <%=name%></h1>
     <% } %>
 
-  <h1>Rock Or Not</h1>
-  <div class="col-sm-6 col-sm-offset-3 band-image text-center">
-    <h3><%=band.title%></h3>
-    <img src="/images/<%=band.imageurl%>" />
-    <a href="/vote/up/<%=band.id%>"><button class="btn btn-success">Rocks!</button></a>
-    <a href="/vote/down/<%=band.id%>"><button class="btn btn-danger">Not</button></a>
-  </div>
+    <h1>Rock Or Not</h1>
+    <div class="col-sm-6 col-sm-offset-3 band-image text-center">
+        <h3><%=band.title%></h3>
+        <img src="/images/<%=band.imageUrl%>" />
+        <a href="/vote/up/<%=band.id%>"><button class="btn btn-success">Rocks!</button></a>
+        <a href="/vote/down/<%=band.id%>"><button class="btn btn-danger">Not</button></a>
+    </div>
 
   </body>
 </html>
